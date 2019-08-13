@@ -1,0 +1,51 @@
+//
+//  Learning-Prefix.pch
+//  Learning
+//
+//  Created by 龙超 on 2019/8/13.
+//  Copyright © 2019 caiyun. All rights reserved.
+//
+
+#ifndef Learning_Prefix_pch
+#define Learning_Prefix_pch
+
+/*** 如果希望某些内容能拷贝到任何源代码文件(OC\C\C++等), 那么就不要写在#ifdef __OBJC__和#endif之间 ***/
+
+/*** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 ***/
+#ifdef __OBJC__
+
+#import "UIView+GGExtension.h"
+#import "UIBarButtonItem+GGExtension.h"
+#import "UITextField+GGExtension.h"
+#import "NSString+GGExtension.h"
+#import "UIImage+GGExtension.h"
+#import "UIImageView+GGExtension.h"
+#import "NSDate+GGExtension.h"
+#import "GGConst.h"
+#import "GGSingleton.h"
+
+/***  屏幕宽高  ***/
+#define GGScreenW [UIScreen mainScreen].bounds.size.width
+#define GGScreenH [UIScreen mainScreen].bounds.size.height
+/***  颜色 ***/
+#define GGRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define GGColor(r, g, b) GGRGBAColor((r), (g), (b), 255)
+// 灰色
+#define GGGrayColor(v) GGColor((v), (v), (v))
+//公共背景色
+#define GGCommonBgColor GGGrayColor(245)
+// 随机色
+#define GGRandomColor GGColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+/***  日志 ***/
+#ifdef DEBUG
+#define GGLog(...) NSLog(__VA_ARGS__)
+#else
+#define GGLog(...)
+#endif
+
+#define GGLogFunc GGLog(@"%s", __func__)
+
+#endif
+
+#endif /* Learning_Prefix_pch */
