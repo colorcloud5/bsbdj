@@ -26,15 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  点赞数
  */
-@property (nonatomic, assign) NSInteger like_count;
-/**
- *  语音路径
- */
-@property (nonatomic, copy) NSString *voiceuri;
-/**
- *  语音时长
- */
-@property (nonatomic, assign) NSInteger voicetime;
+@property (nonatomic, copy) NSString *like_count;
 @end
 
 NS_ASSUME_NONNULL_END

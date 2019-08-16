@@ -59,7 +59,10 @@
 {
     [super layoutSubviews];
     
-    self.y = self.y + 17;
+    if([UIScreen mainScreen].bounds.size.width > 375){
+        self.y = self.y + 17;
+    }
+    
     self.height = 49;
     CGFloat btnW = self.width / 5;
     CGFloat btnH = self.height;

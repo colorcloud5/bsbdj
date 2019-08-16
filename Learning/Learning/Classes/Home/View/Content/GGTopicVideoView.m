@@ -40,7 +40,7 @@ static GGTopicVideoView const *videoCell;
     }
     
     [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.video.thumbnail[0]]];
-    self.playCountLabel.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
+    self.playCountLabel.text = [NSString stringWithFormat:@"%@次播放", topic.video.playcount];
     
     NSInteger minute = topic.video.duration / 60;
     NSInteger second = topic.video.duration % 60;
@@ -98,9 +98,9 @@ static GGTopicVideoView const *videoCell;
     }
     
     [UIView animateWithDuration:0.3 animations:^{
-        _player.alpha = 0.0;
+        self->_player.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [_player removeFromSuperview];
+        [self->_player removeFromSuperview];
         [self sendSubviewToBack:self.backView];
         [self releaseGGPlayer];
     }];

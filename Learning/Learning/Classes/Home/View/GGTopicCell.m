@@ -84,7 +84,7 @@
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.origin.y += GGCommonMargin;
+    //frame.origin.y += GGCommonMargin;
     frame.size.height -= GGCommonMargin;
     
     [super setFrame:frame];
@@ -107,7 +107,6 @@
     [self setupButtonTitle:self.shareButton number:topic.forward placeholder:@"分享"];
     
     // 根据帖子的类型决定中间的内容
-    
      if([topic.type isEqualToString:@"video"]){// 视频
         self.pictureView.hidden = YES;
         self.videoView.hidden = NO;
@@ -118,7 +117,7 @@
         self.pictureView.hidden = NO;
         self.pictureView.frame = topic.contentFrame;
         self.pictureView.topic = topic;
-     }else if([topic.type isEqualToString:@"text"]){// 笑话
+     }else{// 笑话
         self.videoView.hidden = YES;
         self.pictureView.hidden = YES;
     }
@@ -126,10 +125,10 @@
     // 最热评论
     if (topic.top_comments) {
         self.topCmtView.hidden = NO;
-        NSString *username = topic.top_comments.u.name;
-        NSString *content = topic.top_comments.content;
-        self.topCmtNameLabel.text = username;
-        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@",username, content];
+         [self.topCmtProfileImageView setCircleHeaderWithURLString:topic.top_comments.u.header[0]];
+        self.topCmtNameLabel.text = topic.top_comments.u.name;
+        self.topCmtContentLabel.text = topic.top_comments.content;
+        self.topCmtZanLabel.text = topic.top_comments.like_count;
     }else{
         self.topCmtView.hidden = YES;
     }

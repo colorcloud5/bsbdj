@@ -19,13 +19,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oed-Iv-HRU" userLabel="显示图">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oed-Iv-HRU" userLabel="显示图">
                     <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrv-xN-3JI" userLabel="播放">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrv-xN-3JI" userLabel="播放">
                     <rect key="frame" x="165" y="94" width="54" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="icon_video_play_54x54_"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiW-YK-CZi" userLabel="时长">
@@ -45,10 +43,16 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DiW-YK-CZi" secondAttribute="trailing" constant="5" id="3WL-QD-71e"/>
                 <constraint firstItem="Cti-1c-yWr" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" constant="5" id="77g-c8-X0v"/>
+                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerY" secondItem="dKF-r0-i6N" secondAttribute="centerY" id="A2k-aU-qy7"/>
                 <constraint firstAttribute="bottom" secondItem="DiW-YK-CZi" secondAttribute="bottom" constant="3" id="FIK-bV-kMr"/>
                 <constraint firstAttribute="bottom" secondItem="dKF-r0-i6N" secondAttribute="bottom" id="Gwa-bV-vJF"/>
+                <constraint firstAttribute="trailing" secondItem="Oed-Iv-HRU" secondAttribute="trailing" id="H0O-1X-F5w"/>
                 <constraint firstItem="dKF-r0-i6N" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" id="H7m-E7-3Jv"/>
                 <constraint firstItem="dKF-r0-i6N" firstAttribute="top" secondItem="ISs-z8-idf" secondAttribute="top" id="OmE-2m-zyo"/>
+                <constraint firstItem="Oed-Iv-HRU" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" id="Rkt-3S-jut"/>
+                <constraint firstAttribute="bottom" secondItem="Oed-Iv-HRU" secondAttribute="bottom" id="Sqc-41-Hp4"/>
+                <constraint firstItem="Oed-Iv-HRU" firstAttribute="top" secondItem="ISs-z8-idf" secondAttribute="top" id="WT9-NJ-Jgx"/>
+                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerX" secondItem="dKF-r0-i6N" secondAttribute="centerX" id="cAR-Vv-1mh"/>
                 <constraint firstAttribute="bottom" secondItem="Cti-1c-yWr" secondAttribute="bottom" constant="3" id="j8O-Ee-c6g"/>
                 <constraint firstAttribute="trailing" secondItem="dKF-r0-i6N" secondAttribute="trailing" id="o1t-BX-Ewk"/>
             </constraints>

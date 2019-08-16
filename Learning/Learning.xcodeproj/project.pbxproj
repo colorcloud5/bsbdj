@@ -27,6 +27,7 @@
 		A34F0A782303B83E0066BEB8 /* app_slogan_0101@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A752303B83E0066BEB8 /* app_slogan_0101@3x.png */; };
 		A34F0A792303B83E0066BEB8 /* app_slogan_0101.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A762303B83E0066BEB8 /* app_slogan_0101.png */; };
 		A34F0A7A2303B83E0066BEB8 /* app_slogan_0101@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A772303B83E0066BEB8 /* app_slogan_0101@2x.png */; };
+		A350672A2306AD560053324F /* GGExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A35067292306AD560053324F /* GGExtensionConfig.m */; };
 		A371CD7B23028ECB0049E611 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A371CD7A23028ECB0049E611 /* main.m */; };
 		A371CD8523028ECB0049E611 /* LearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A371CD8423028ECB0049E611 /* LearningTests.m */; };
 		A371CD9023028ECB0049E611 /* LearningUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A371CD8F23028ECB0049E611 /* LearningUITests.m */; };
@@ -124,6 +125,8 @@
 		A34F0A752303B83E0066BEB8 /* app_slogan_0101@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_slogan_0101@3x.png"; sourceTree = "<group>"; };
 		A34F0A762303B83E0066BEB8 /* app_slogan_0101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_slogan_0101.png; sourceTree = "<group>"; };
 		A34F0A772303B83E0066BEB8 /* app_slogan_0101@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_slogan_0101@2x.png"; sourceTree = "<group>"; };
+		A35067282306AD560053324F /* GGExtensionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGExtensionConfig.h; sourceTree = "<group>"; };
+		A35067292306AD560053324F /* GGExtensionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGExtensionConfig.m; sourceTree = "<group>"; };
 		A371CD6823028EC90049E611 /* Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A371CD7923028ECB0049E611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A371CD7A23028ECB0049E611 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 			children = (
 				A3AF9DAB23045D9400187C2C /* GGMyFooter.h */,
 				A3AF9DAC23045D9400187C2C /* GGMyFooter.m */,
+				A35067282306AD560053324F /* GGExtensionConfig.h */,
+				A35067292306AD560053324F /* GGExtensionConfig.m */,
 			);
 			path = DependView;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				A3AF9DBC2304669A00187C2C /* GGTitleButton.m in Sources */,
 				A3DFBA3E2302CB850006EEE3 /* UIImage+GGExtension.m in Sources */,
 				A371CDDD2302B2DC0049E611 /* GGHomeViewController.m in Sources */,
+				A350672A2306AD560053324F /* GGExtensionConfig.m in Sources */,
 				A3AF9DCF23054C7900187C2C /* GGTopicJokeView.m in Sources */,
 				A3AF9DDA230554C200187C2C /* NSBundle+GGPlayer.m in Sources */,
 				A3DFBA3C2302CB850006EEE3 /* UIBarButtonItem+GGExtension.m in Sources */,
@@ -1145,7 +1151,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/longchao/Documents/Learning/Learning/Learning/Learning-Prefix.pch";
 				INFOPLIST_FILE = Learning/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1166,7 +1172,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/longchao/Documents/Learning/Learning/Learning/Learning-Prefix.pch";
 				INFOPLIST_FILE = Learning/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

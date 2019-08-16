@@ -19,8 +19,8 @@ NSString * const GGTabBarItemSelectedNotification = @"GGTabBarItemSelectedNotifi
 
 /** 请求路径 */
 NSString * const GGRequestURL = @"http://api.budejie.com/api/api_open.php";
-NSString * const GGRecommendURL = @"http://e.api.budejie.com/v2/topic/feed/1/0-0/bsbdjhd-iphone-5.1.4/0-20.json";
-NSString * const GGOtherURL = @"http://s.budejie.com/v2/topic/list/topictype/0-0/bsbdjhd-iphone-5.1.4/0-25.json";
+NSString * const GGRecommendURL = @"http://e.api.budejie.com/v2/topic/feed/1/#connid/bsbdjhd-iphone-5.1.4/#np-20.json";
+NSString * const GGOtherURL = @"http://s.budejie.com/v2/topic/list/#topictype/#connid/bsbdjhd-iphone-5.1.4/#np-25.json";
 
 /** 统一的间距 */
 CGFloat const GGCommonMargin = 10;
@@ -37,8 +37,10 @@ CGFloat const GGTabBarH = 49;
 /** 帖子-文字的Y值 */
 CGFloat const GGTopicTextY = 55;
 
-/** 帖子-最热评论-顶部的高度 */
+/** 最热评论-顶部的高度 */
 CGFloat const GGTopicTopCmtTopH = 20;
+/** 最热评论-文字的Y值 */
+CGFloat const GGTopicTopCmtTextY = 22;
 
 /** 帖子-底部工具条的高度 */
 CGFloat const GGTopicToolbarH = 35;

@@ -20,7 +20,12 @@
 /** 所有帖子数据 */
 @property (nonatomic, strong) NSMutableArray *topics;
 /** 用来加载下一页数据 */
-@property (nonatomic, copy) NSString *maxtime;
+@property (nonatomic, copy) NSString *np;
+@property (nonatomic, copy) NSString *connid;
+
+@property (nonatomic, weak) GGTopicCell *cell;
+
+
 @end
 
 @implementation GGTopicViewController
@@ -55,7 +60,7 @@ static NSString * const GGTopicCellId = @"topic";
 - (void)setupTable
 {
     self.tableView.backgroundColor = GGCommonBgColor;
-    self.tableView.contentInset = UIEdgeInsetsMake(GGNavBarMaxY + GGTitlesViewH, 0, GGTabBarH, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, GGTabBarH, 0);
     // 指定滚动条在scrollerView中的位置
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     // 去掉分割线
@@ -93,20 +98,28 @@ static NSString * const GGTopicCellId = @"topic";
     
     NSString *requestURL;
     if (self.type == GGTopicTypeRecommend) {
-        requestURL = GGRecommendURL;
-    }else{
-        requestURL = GGOtherURL;
+        requestURL = [GGRecommendURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:@"0"];
+    }else {
+        requestURL = [GGOtherURL stringByReplacingOccurrencesOfString:@"#topictype" withString:[NSString stringWithFormat:@"%@",@(self.type)]];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:@"0"];
     }
 
-    // 发送请求
+    // 发送请求d
     __weak typeof(self) weakSelf = self;
-    [self.manager GET:requestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:requestURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //        GGLog(@"%@", responseObject);
         // 字典数组 －》 模型数组
         weakSelf.topics = [GGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-        // 存储maxtime
-        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
+        // 存储np
+        NSNumber *np = responseObject[@"info"][@"np"];
+        weakSelf.np = [np stringValue];
+        
+        NSString *firstId = ((GGTopic *)weakSelf.topics[0]).ID;
+        NSString *lastId =  ((GGTopic *)weakSelf.topics[weakSelf.topics.count - 1]).ID;
+        weakSelf.connid = [NSString stringWithFormat:@"%@-%@",firstId, lastId];
         
         // 刷新表格
         [weakSelf.tableView reloadData];
@@ -129,21 +142,35 @@ static NSString * const GGTopicCellId = @"topic";
     
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = [self aParam];
-    params[@"c"] = @"data";
-    params[@"type"] = @(self.type);
-    params[@"maxtime"] = self.maxtime;
+//    params[@"a"] = [self aParam];
+//    params[@"c"] = @"data";
+//    params[@"type"] = @(self.type);
+//    params[@"maxtime"] = self.maxtime;
+    NSString *requestURL;
+    if (self.type == GGTopicTypeRecommend) {
+        requestURL = [GGRecommendURL stringByReplacingOccurrencesOfString:@"#connid" withString:self.connid];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:self.np];
+    }else {
+        requestURL = [GGOtherURL stringByReplacingOccurrencesOfString:@"#topictype" withString:[NSString stringWithFormat:@"%@",@(self.type)]];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#connid" withString:self.connid];
+        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:self.np];
+    }
     
     // 发送请求
     __weak typeof (self) weakSelf = self;
-    [self.manager GET:GGRequestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:requestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 字典数组 -> 模型数组
         NSArray *moreTopics = [GGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [weakSelf.topics addObjectsFromArray:moreTopics];
         
-        // 存储maxtime
-        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
+        // 存储np
+        NSNumber *np = responseObject[@"info"][@"np"];
+        weakSelf.np = [np stringValue];
+        
+        NSString *firstId = ((GGTopic *)moreTopics[0]).ID;
+        NSString *lastId =  ((GGTopic *)moreTopics[moreTopics.count - 1]).ID;
+        weakSelf.connid = [NSString stringWithFormat:@"%@-%@",firstId, lastId];
         
         // 刷新表格
         [weakSelf.tableView reloadData];
@@ -175,10 +202,9 @@ static NSString * const GGTopicCellId = @"topic";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:GGTopicCellId];
-    cell.topic = self.topics[indexPath.row];
+    self.cell = [tableView dequeueReusableCellWithIdentifier:GGTopicCellId];
     
-    return cell;
+    return self.cell;
 }
 
 #pragma mark - tableView代理方法
@@ -186,8 +212,10 @@ static NSString * const GGTopicCellId = @"topic";
 {
     // 模型中已经完成高度的计算
     GGTopic *topic = self.topics[indexPath.row];
+    CGFloat cellHeight = topic.cellHeight;
+    self.cell.topic = topic;
     
-    return topic.cellHeight;
+    return cellHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

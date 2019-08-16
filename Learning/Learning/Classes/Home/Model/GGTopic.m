@@ -66,6 +66,7 @@
             CGFloat contentW = textW;
             CGFloat contentH = 0;
             if ([self.type isEqualToString:@"video"]) {
+                contentW = GGScreenW;
                 contentH = contentW * self.video.height / self.video.width;
             }else if([self.type isEqualToString:@"gif"]){
                 contentH = contentW * self.gif.height / self.gif.width;
@@ -80,21 +81,23 @@
             
             CGFloat contentX = GGCommonMargin;
             CGFloat contentY = _cellHeight;
-            self.contentFrame = CGRectMake(contentX, contentY, contentW, contentH);
-            
+            if ([self.type isEqualToString:@"video"]) {
+                self.contentFrame = CGRectMake(0, contentY, contentW, contentH);
+            }else{
+                  self.contentFrame = CGRectMake(contentX, contentY, contentW, contentH);
+            }
+      
             _cellHeight += contentH + GGCommonMargin;
         }
         
         // 最热评论
         if (self.top_comments) {
-            NSString *username = self.top_comments.u.name;
+            //
             NSString *content = self.top_comments.content;
-            NSString *cmtText = [NSString stringWithFormat:@"%@ : %@", username, content];
-            
             // 评论内容的高度
-            CGFloat cmtTextH = [cmtText boundingRectWithSize:CGSizeMake(textW, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14] } context:nil].size.height;
+            CGFloat cmtTextH = [content boundingRectWithSize:CGSizeMake(textW, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14] } context:nil].size.height;
             
-            _cellHeight += GGTopicTopCmtTopH + cmtTextH + GGCommonMargin;
+            _cellHeight += GGTopicTopCmtTopH + GGTopicTopCmtTextY + cmtTextH + GGCommonMargin;
         }
         
         // 加上工具条的高度

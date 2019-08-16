@@ -39,9 +39,10 @@ UIKIT_EXTERN CGFloat const GGTabBarH;
 /** 帖子-文字的Y值 */
 UIKIT_EXTERN CGFloat const GGTopicTextY;
 
-/** 帖子-最热评论-顶部的高度 */
+/** 最热评论-顶部的高度 */
 UIKIT_EXTERN CGFloat const GGTopicTopCmtTopH;
-
+/** 最热评论-文字的Y值 */
+UIKIT_EXTERN CGFloat const GGTopicTopCmtTextY;
 /** 帖子-底部工具条的高度 */
 UIKIT_EXTERN CGFloat const GGTopicToolbarH;
 @end

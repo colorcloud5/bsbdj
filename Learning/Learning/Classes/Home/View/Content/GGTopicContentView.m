@@ -22,7 +22,7 @@
     //清空自动伸缩属性
     self.autoresizingMask = UIViewAutoresizingNone;
     
-//    self.userInteractionEnabled = YES;
+    self.userInteractionEnabled = YES;
 //    UIGestureRecognizer *gestureRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)];
 //    [self.imageView addGestureRecognizer:gestureRecognizer];
 }

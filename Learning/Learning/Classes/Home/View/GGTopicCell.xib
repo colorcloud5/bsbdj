@@ -52,7 +52,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVy-yv-Pxv" userLabel="最热评论">
-                        <rect key="frame" x="16" y="119.5" width="288" height="54"/>
+                        <rect key="frame" x="10" y="119.5" width="300" height="54"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-Od-6Ha" userLabel="头像">
                                 <rect key="frame" x="2" y="2" width="18" height="18"/>
@@ -68,7 +68,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgg-ha-kpd" userLabel="赞">
-                                <rect key="frame" x="274" y="2" width="14" height="14"/>
+                                <rect key="frame" x="280" y="2" width="14" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" image="icon_post_zan_god_14x14_">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,19 +76,19 @@
                                 <state key="selected" image="icon_post_zan_god_select_14x14_"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-2u-XNh" userLabel="点赞数">
-                                <rect key="frame" x="245.5" y="4" width="24.5" height="12"/>
+                                <rect key="frame" x="251.5" y="4" width="24.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhW-MX-w8A" userLabel="文字内容">
-                                <rect key="frame" x="2" y="22" width="286" height="30"/>
+                                <rect key="frame" x="2" y="22" width="292" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gold_comment_74x54_" translatesAutoresizingMaskIntoConstraints="NO" id="7jK-Iz-kgx">
-                                <rect key="frame" x="200" y="0.0" width="74" height="54"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gold_comment_74x54_" translatesAutoresizingMaskIntoConstraints="NO" id="7jK-Iz-kgx" userLabel="神评">
+                                <rect key="frame" x="206" y="0.0" width="74" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="LlT-wl-BxV"/>
                                     <constraint firstAttribute="width" constant="74" id="qfK-lx-Dr0"/>
@@ -116,7 +116,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0L-TH-RFv" userLabel="底部工具条">
                         <rect key="frame" x="0.0" y="183.5" width="320" height="35"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-lh-HO3" userLabel="赞">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-lh-HO3" userLabel="赞">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -125,7 +125,7 @@
                                 </state>
                                 <state key="selected" image="icon_post_zan_select_21x21_"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4b-g2-JPL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4b-g2-JPL">
                                 <rect key="frame" x="80" y="0.0" width="80" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -134,7 +134,7 @@
                                 </state>
                                 <state key="selected" image="icon_post_cai_select_21x21_"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC8-3a-YUr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC8-3a-YUr">
                                 <rect key="frame" x="160" y="0.0" width="80" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -142,7 +142,7 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-9N-TB3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-9N-TB3">
                                 <rect key="frame" x="240" y="0.0" width="80" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -175,7 +175,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZVy-yv-Pxv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4OK-sv-Kcu"/>
+                    <constraint firstAttribute="trailing" secondItem="ZVy-yv-Pxv" secondAttribute="trailing" constant="10" id="4IV-VM-8Bp"/>
                     <constraint firstItem="WdN-RV-tr5" firstAttribute="top" secondItem="5bw-jN-Zh0" secondAttribute="top" id="9pk-k7-crm"/>
                     <constraint firstAttribute="trailing" secondItem="6vN-Ib-Xna" secondAttribute="trailing" constant="10" id="DZ7-uo-HVB"/>
                     <constraint firstItem="WdN-RV-tr5" firstAttribute="leading" secondItem="5bw-jN-Zh0" secondAttribute="trailing" constant="8" id="E7E-Ff-Gq4"/>
@@ -184,10 +184,10 @@
                     <constraint firstItem="xGf-vf-N5E" firstAttribute="bottom" secondItem="5bw-jN-Zh0" secondAttribute="bottom" id="Kcf-D2-p5G"/>
                     <constraint firstItem="wg3-3n-55w" firstAttribute="trailing" secondItem="6vN-Ib-Xna" secondAttribute="trailing" id="VJR-Cu-4kQ"/>
                     <constraint firstItem="5bw-jN-Zh0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VcJ-Qj-wxk"/>
+                    <constraint firstItem="ZVy-yv-Pxv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bWB-Zv-hdW"/>
                     <constraint firstItem="e0L-TH-RFv" firstAttribute="top" secondItem="ZVy-yv-Pxv" secondAttribute="bottom" constant="10" id="bdm-X5-1Ls"/>
                     <constraint firstAttribute="trailing" secondItem="Lgg-ha-kpd" secondAttribute="trailing" constant="16" id="hN7-oz-zhr"/>
                     <constraint firstItem="wg3-3n-55w" firstAttribute="leading" secondItem="5bw-jN-Zh0" secondAttribute="leading" id="ivg-ph-EdF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ZVy-yv-Pxv" secondAttribute="trailing" id="jgP-PH-Ou3"/>
                     <constraint firstItem="WdN-RV-tr5" firstAttribute="leading" secondItem="5bw-jN-Zh0" secondAttribute="trailing" constant="8" id="jiX-QY-l4N"/>
                     <constraint firstAttribute="bottom" secondItem="e0L-TH-RFv" secondAttribute="bottom" id="kin-F9-fvz"/>
                     <constraint firstItem="e0L-TH-RFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mCW-m2-Nxp"/>
