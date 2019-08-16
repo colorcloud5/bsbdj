@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  用户
  */
-@property (nonatomic, strong) GGUser *user;
+@property (nonatomic, strong) GGUser *u;
 /**
  *  点赞数
  */

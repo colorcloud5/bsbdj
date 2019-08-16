@@ -87,13 +87,20 @@ static NSString * const GGTopicCellId = @"topic";
     
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = [self aParam];
-    params[@"c"] = @"data";
-    params[@"type"] = @(self.type);
+//    params[@"a"] = [self aParam];
+//    params[@"c"] = @"data";
+//    params[@"type"] = @(self.type);
     
+    NSString *requestURL;
+    if (self.type == GGTopicTypeRecommend) {
+        requestURL = GGRecommendURL;
+    }else{
+        requestURL = GGOtherURL;
+    }
+
     // 发送请求
     __weak typeof(self) weakSelf = self;
-    [self.manager GET:GGRequestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:requestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //        GGLog(@"%@", responseObject);
         // 字典数组 －》 模型数组
         weakSelf.topics = [GGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];

@@ -8,6 +8,8 @@
 
 #import "GGTopicPictureView.h"
 #import "GGTopic.h"
+#import "GGGif.h"
+#import "GGImage.h"
 #import <UIImageView+WebCache.h>
 #import <DALabeledCircularProgressView.h>
 
@@ -34,10 +36,16 @@
 {
     [super setTopic:topic];
     
+    NSString *url = [[NSString alloc] init];
+    if ([self.topic.type isEqualToString:@"gif"]) {
+        url = self.topic.gif.images[0];
+    }else if([self.topic.type isEqualToString:@"image"]){
+        url = self.topic.image.thumbnail_link[0];
+    }
     // 下载图片
     __weak typeof(self) weakSelf = self;
     
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         // 每加载一点图片数据就会来到
         weakSelf.progressView.hidden = NO;
         weakSelf.progressView.progress = 1.0 * receivedSize / expectedSize;
@@ -59,10 +67,10 @@
     }];
     
     self.imageTypeButton.hidden = NO;
-    if (topic.is_gif) {
+    if ([topic.type isEqualToString:@"gif"]) {
         [self.imageTypeButton setTitle:@"GIF" forState:UIControlStateNormal];
     }
-    else if (topic.isBigPicture){
+    else if (topic.image.long_picture){
         [self.imageTypeButton setTitle:@"长图" forState:UIControlStateNormal];
     }
     else{

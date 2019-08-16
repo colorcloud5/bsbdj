@@ -21,7 +21,8 @@ UIKIT_EXTERN NSString * const GGTabBarItemSelectedNotification;
 
 /** 请求路径 */
 UIKIT_EXTERN NSString * const GGRequestURL;
-
+UIKIT_EXTERN NSString * const GGRecommendURL;
+UIKIT_EXTERN NSString * const GGOtherURL;
 
 /** 统一的间距 */
 UIKIT_EXTERN CGFloat const GGCommonMargin;

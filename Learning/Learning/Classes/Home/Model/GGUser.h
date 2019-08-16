@@ -11,18 +11,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GGUser : NSObject
+
+/**
+ 头像
+ */
+@property (nonatomic, strong) NSArray *header;
 /**
  *  用户
  */
-@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *name;
+/**
+ vip
+ */
+@property (nonatomic, assign) BOOL is_vip;
 /**
  *  性别
  */
 @property (nonatomic, copy) NSString *sex;
-/**
- *  头像
- */
-@property (nonatomic, copy) NSString *profile_image;
+
 @end
 
 NS_ASSUME_NONNULL_END

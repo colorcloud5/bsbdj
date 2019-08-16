@@ -95,38 +95,39 @@
 {
     _topic = topic;
     
-    [self.profileImageView setCircleHeaderWithURLString:topic.profile_image];
-    self.nameLabel.text = topic.name;
-    self.createdAtLabel.text = topic.created_at;
+    [self.profileImageView setCircleHeaderWithURLString:topic.u.header[0]];
+    self.nameLabel.text = topic.u.name;
+    self.createdAtLabel.text = topic.passtime;
     self.txtLabel.text = topic.text;
     
     // 设置底部工具条的数据
-    [self setupButtonTitle:self.zanButton number:topic.ding placeholder:@"赞"];
-    [self setupButtonTitle:self.caiButton number:topic.cai placeholder:@"踩"];
+    [self setupButtonTitle:self.zanButton number:topic.up placeholder:@"赞"];
+    [self setupButtonTitle:self.caiButton number:topic.down placeholder:@"踩"];
     [self setupButtonTitle:self.commentButton number:topic.comment placeholder:@"评论"];
-    [self setupButtonTitle:self.shareButton number:topic.repost placeholder:@"分享"];
+    [self setupButtonTitle:self.shareButton number:topic.forward placeholder:@"分享"];
     
     // 根据帖子的类型决定中间的内容
-     if(topic.type == GGTopicTypeVideo){// 视频
+    
+     if([topic.type isEqualToString:@"video"]){// 视频
         self.pictureView.hidden = YES;
         self.videoView.hidden = NO;
         self.videoView.frame = topic.contentFrame;
         self.videoView.topic = topic;
-     }else if (topic.type == GGTopicTypePicture) {// 图片
+     }else if ([topic.type isEqualToString:@"image"] || [topic.type isEqualToString:@"gif"] ) {// 图片
         self.videoView.hidden = YES;
         self.pictureView.hidden = NO;
         self.pictureView.frame = topic.contentFrame;
         self.pictureView.topic = topic;
-     }else if(topic.type == GGTopicTypeJoke){// 笑话
+     }else if([topic.type isEqualToString:@"text"]){// 笑话
         self.videoView.hidden = YES;
         self.pictureView.hidden = YES;
     }
     
     // 最热评论
-    if (topic.top_cmt) {
+    if (topic.top_comments) {
         self.topCmtView.hidden = NO;
-        NSString *username = topic.top_cmt.user.username;
-        NSString *content = topic.top_cmt.content;
+        NSString *username = topic.top_comments.u.name;
+        NSString *content = topic.top_comments.content;
         self.topCmtNameLabel.text = username;
         self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@",username, content];
     }else{

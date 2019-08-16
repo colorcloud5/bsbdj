@@ -48,27 +48,27 @@
     [self.view insertSubview:scrollView atIndex:0];
     
     // 图片
-    UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
-    [scrollView addSubview:imageView];
-    self.imageView = imageView;
+//    UIImageView *imageView = [[UIImageView alloc] init];
+//    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
+//    [scrollView addSubview:imageView];
+//    self.imageView = imageView;
     
     // 图片的尺寸
-    imageView.x = 0;
-    imageView.width = GGScreenW;
-    imageView.height = imageView.width * self.topic.height / self.topic.width;
-    if (imageView.height > GGScreenH) {// 图片长度超出屏幕高度
-        imageView.y = 0;
-        scrollView.contentSize = CGSizeMake(0, imageView.height);
-    }else{// 图片居中显示
-        imageView.centerY = GGScreenH * 0.5;
-    }
-    
-    // 伸缩
-    CGFloat maxScale = self.topic.height / imageView.height;
-    if (maxScale >1.0) {
-        scrollView.maximumZoomScale = maxScale;
-    }
+//    imageView.x = 0;
+//    imageView.width = GGScreenW;
+//    imageView.height = imageView.width * self.topic.height / self.topic.width;
+//    if (imageView.height > GGScreenH) {// 图片长度超出屏幕高度
+//        imageView.y = 0;
+//        scrollView.contentSize = CGSizeMake(0, imageView.height);
+//    }else{// 图片居中显示
+//        imageView.centerY = GGScreenH * 0.5;
+//    }
+//    
+//    // 伸缩
+//    CGFloat maxScale = self.topic.height / imageView.height;
+//    if (maxScale >1.0) {
+//        scrollView.maximumZoomScale = maxScale;
+//    }
 }
 
 #pragma mark - 监听方法

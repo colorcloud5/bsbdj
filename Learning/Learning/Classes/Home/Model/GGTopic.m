@@ -9,17 +9,20 @@
 #import "GGTopic.h"
 #import "GGComment.h"
 #import "GGUser.h"
+#import "GGVideo.h"
+#import "GGImage.h"
+#import "GGGif.h"
 
 @implementation GGTopic
 
--(NSString *)created_at
+-(NSString *)passtime
 {
     // 日期格式化类
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     
     // NSString 转 NSDate
-    NSDate *createdAtDate = [fmt dateFromString:_created_at];
+    NSDate *createdAtDate = [fmt dateFromString:_passtime];
     
     // 比较当前时间和发帖时间
     NSDateComponents *cmps = [createdAtDate intervalToNow];
@@ -41,7 +44,7 @@
         }
         
     }else{// 非今年
-        return _created_at;
+        return _passtime;
     }
     
     return nil;
@@ -59,9 +62,17 @@
         _cellHeight += textH + GGCommonMargin;
         
         // 中间内容的高度
-        if (self.type != GGTopicTypeJoke) {
+        if (![self.type isEqualToString:@"text"]) {
             CGFloat contentW = textW;
-            CGFloat contentH = contentW * self.height / self.width;
+            CGFloat contentH = 0;
+            if ([self.type isEqualToString:@"video"]) {
+                contentH = contentW * self.video.height / self.video.width;
+            }else if([self.type isEqualToString:@"gif"]){
+                contentH = contentW * self.gif.height / self.gif.width;
+            }else if([self.type isEqualToString:@"image"]){
+                contentH = contentW * self.image.height / self.image.width;
+            }
+            
             if (contentH > GGScreenH) { // 当图片的高度超过一个屏幕的高度时，将图片高度设置为200
                 contentH = 200;
                 self.bigPicture = YES;
@@ -75,9 +86,9 @@
         }
         
         // 最热评论
-        if (self.top_cmt) {
-            NSString *username = self.top_cmt.user.username;
-            NSString *content = self.top_cmt.content;
+        if (self.top_comments) {
+            NSString *username = self.top_comments.u.name;
+            NSString *content = self.top_comments.content;
             NSString *cmtText = [NSString stringWithFormat:@"%@ : %@", username, content];
             
             // 评论内容的高度

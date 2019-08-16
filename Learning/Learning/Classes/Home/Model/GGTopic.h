@@ -30,47 +30,38 @@ typedef enum {
 }GGTopicType;
 
 @class GGComment;
+@class GGUser;
+@class GGGif;
+@class GGImage;
+@class GGVideo;
 @interface GGTopic : NSObject
 /** id */
 @property (nonatomic, copy) NSString *ID;
-
-// 发帖者
-/**  用户名 */
-@property (nonatomic, copy) NSString *name;
-/** 用户的头像 */
-@property (nonatomic, copy) NSString *profile_image;
+/** 资源类型 */
+@property (nonatomic, copy) NSString *type;
+/** 帖子创建时间 */
+@property (nonatomic, copy) NSString *passtime;
+/** 发帖者模型 */
+@property (nonatomic, strong) GGUser *u;
 /** 帖子文字内容 */
 @property (nonatomic, copy) NSString *text;
-/** 帖子创建时间 */
-@property (nonatomic, copy) NSString *created_at;
-/** 顶数量 */
-@property (nonatomic, assign) NSInteger ding;
+/** 赞数量 */
+@property (nonatomic, assign) CGFloat up;
 /** 踩数量 */
-@property (nonatomic, assign) NSInteger cai;
-/** 转发/分享 数 */
-@property (nonatomic, assign) NSInteger repost;
-/** 评论数 */
-@property (nonatomic, assign) NSInteger comment;
-/** 类型 */
-@property (nonatomic, assign) GGTopicType type;
-/** 图片宽度 */
-@property (nonatomic, assign) CGFloat width;
-/** 图片高度 */
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) CGFloat down;
+/** 评论数量 */
+@property (nonatomic, assign) CGFloat comment;
+/** 转发数量 */
+@property (nonatomic, assign) CGFloat forward;
+/** 最热评论模型 */
+@property (nonatomic, strong) GGComment *top_comments;
+/** 分享链接 */
+@property (nonatomic, copy) NSString *share_url;
 
-/** 小图 */
-@property (nonatomic, copy) NSString *small_image;
-/** 中图 */
-@property (nonatomic, copy) NSString *middle_image;
-/** 大图 */
-@property (nonatomic, copy) NSString *large_image;
-/** 是否动态图 */
-@property (nonatomic, assign) BOOL is_gif;
+@property (nonatomic, strong) GGVideo *video;
+@property (nonatomic, strong) GGGif *gif;
+@property (nonatomic, strong) GGImage *image;
 
-/** 视频时长 */
-@property (nonatomic, assign) NSInteger videotime;
-/** 视频url */
-@property (nonatomic, copy) NSString *videouri;
 /** 音频时长 */
 @property (nonatomic, assign) NSInteger voicetime;
 /** 音频url */
@@ -78,10 +69,7 @@ typedef enum {
 /** 播放次数 */
 @property (nonatomic, assign) NSInteger playcount;
 
-/**
- *  最热评论
- */
-@property (nonatomic, strong) GGComment *top_cmt;
+
 
 /***** 额外增加的属性 *****/
 /**

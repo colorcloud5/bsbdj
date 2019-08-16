@@ -19,7 +19,8 @@ NSString * const GGTabBarItemSelectedNotification = @"GGTabBarItemSelectedNotifi
 
 /** 请求路径 */
 NSString * const GGRequestURL = @"http://api.budejie.com/api/api_open.php";
-
+NSString * const GGRecommendURL = @"http://e.api.budejie.com/v2/topic/feed/1/0-0/bsbdjhd-iphone-5.1.4/0-20.json";
+NSString * const GGOtherURL = @"http://s.budejie.com/v2/topic/list/topictype/0-0/bsbdjhd-iphone-5.1.4/0-25.json";
 
 /** 统一的间距 */
 CGFloat const GGCommonMargin = 10;

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-r0-i6N" userLabel="backView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-r0-i6N" userLabel="backView" customClass="GGTopicVideoView">
                     <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>

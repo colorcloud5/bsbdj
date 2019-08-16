@@ -8,6 +8,7 @@
 
 #import "GGTopicVideoView.h"
 #import "GGTopic.h"
+#import "GGVideo.h"
 #import "GGPlayer.h"
 #import <UIImageView+WebCache.h>
 
@@ -38,11 +39,11 @@ static GGTopicVideoView const *videoCell;
         [self releaseGGPlayer];
     }
     
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.video.thumbnail[0]]];
     self.playCountLabel.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
     
-    NSInteger minute = topic.videotime / 60;
-    NSInteger second = topic.videotime % 60;
+    NSInteger minute = topic.video.duration / 60;
+    NSInteger second = topic.video.duration % 60;
     // %02zd ：显示这个数字需要占据2位空间，不足的空间用0替补
     self.videoTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd", minute, second];
     
@@ -59,11 +60,11 @@ static GGTopicVideoView const *videoCell;
     
     if (self.player) {
         [self.player removeFromSuperview];
-        [self.player setVideoURLStr:self.topic.videouri];
+        [self.player setVideoURLStr:self.topic.video.video[0]];
         //        self.htPlayer.videoURLStr = self.topic.videouri;
         
     }else{
-        self.player = [[GGPlayer alloc] initWithFrame:self.backView.bounds videoURLStr:self.topic.videouri];
+        self.player = [[GGPlayer alloc] initWithFrame:self.backView.bounds videoURLStr:self.topic.video.video[0]];
     }
     
     [self.player setPlayTitle:@"百思不得姐"];

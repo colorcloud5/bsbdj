@@ -21,6 +21,9 @@
 		A31D6CB5230434DF007BB8AC /* GGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D6CB4230434DF007BB8AC /* GGTopicPictureView.m */; };
 		A31D6CB7230434F3007BB8AC /* GGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D6CB6230434F3007BB8AC /* GGTopicPictureView.xib */; };
 		A33D9BE7230638C7004A6DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33D9BE6230638C7004A6DD3 /* Assets.xcassets */; };
+		A33D9BEA230651DB004A6DD3 /* GGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A33D9BE9230651DB004A6DD3 /* GGVideo.m */; };
+		A33D9BED23065E8E004A6DD3 /* GGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A33D9BEC23065E8E004A6DD3 /* GGImage.m */; };
+		A33D9BF023065EA1004A6DD3 /* GGGif.m in Sources */ = {isa = PBXBuildFile; fileRef = A33D9BEF23065EA1004A6DD3 /* GGGif.m */; };
 		A34F0A782303B83E0066BEB8 /* app_slogan_0101@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A752303B83E0066BEB8 /* app_slogan_0101@3x.png */; };
 		A34F0A792303B83E0066BEB8 /* app_slogan_0101.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A762303B83E0066BEB8 /* app_slogan_0101.png */; };
 		A34F0A7A2303B83E0066BEB8 /* app_slogan_0101@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34F0A772303B83E0066BEB8 /* app_slogan_0101@2x.png */; };
@@ -112,6 +115,12 @@
 		A31D6CB4230434DF007BB8AC /* GGTopicPictureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGTopicPictureView.m; sourceTree = "<group>"; };
 		A31D6CB6230434F3007BB8AC /* GGTopicPictureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGTopicPictureView.xib; sourceTree = "<group>"; };
 		A33D9BE6230638C7004A6DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A33D9BE8230651DB004A6DD3 /* GGVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGVideo.h; sourceTree = "<group>"; };
+		A33D9BE9230651DB004A6DD3 /* GGVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGVideo.m; sourceTree = "<group>"; };
+		A33D9BEB23065E8E004A6DD3 /* GGImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGImage.h; sourceTree = "<group>"; };
+		A33D9BEC23065E8E004A6DD3 /* GGImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGImage.m; sourceTree = "<group>"; };
+		A33D9BEE23065EA1004A6DD3 /* GGGif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGif.h; sourceTree = "<group>"; };
+		A33D9BEF23065EA1004A6DD3 /* GGGif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGif.m; sourceTree = "<group>"; };
 		A34F0A752303B83E0066BEB8 /* app_slogan_0101@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_slogan_0101@3x.png"; sourceTree = "<group>"; };
 		A34F0A762303B83E0066BEB8 /* app_slogan_0101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_slogan_0101.png; sourceTree = "<group>"; };
 		A34F0A772303B83E0066BEB8 /* app_slogan_0101@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_slogan_0101@2x.png"; sourceTree = "<group>"; };
@@ -563,6 +572,12 @@
 				A31D6CA02303EE79007BB8AC /* GGComment.m */,
 				A31D6CA22303EE8F007BB8AC /* GGUser.h */,
 				A31D6CA32303EE8F007BB8AC /* GGUser.m */,
+				A33D9BE8230651DB004A6DD3 /* GGVideo.h */,
+				A33D9BE9230651DB004A6DD3 /* GGVideo.m */,
+				A33D9BEB23065E8E004A6DD3 /* GGImage.h */,
+				A33D9BEC23065E8E004A6DD3 /* GGImage.m */,
+				A33D9BEE23065EA1004A6DD3 /* GGGif.h */,
+				A33D9BEF23065EA1004A6DD3 /* GGGif.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -930,6 +945,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33D9BF023065EA1004A6DD3 /* GGGif.m in Sources */,
 				A3AF9DC32304D9AD00187C2C /* GGNewViewController.m in Sources */,
 				A31D6CA82303F108007BB8AC /* GGTopicCell.m in Sources */,
 				A3DFBA3F2302CB850006EEE3 /* NSString+GGExtension.m in Sources */,
@@ -959,6 +975,7 @@
 				A3AF9DCA23054C0400187C2C /* GGTopicVideoView.m in Sources */,
 				A3DFBA382302CB850006EEE3 /* UIColor+GGExtension.m in Sources */,
 				A371CDBB23029AC70049E611 /* GGTopWindow.m in Sources */,
+				A33D9BEA230651DB004A6DD3 /* GGVideo.m in Sources */,
 				A371CDC12302A7490049E611 /* GGTabBarController.m in Sources */,
 				A31D6CA42303EE8F007BB8AC /* GGUser.m in Sources */,
 				A31D6C9E2303EE32007BB8AC /* GGTopic.m in Sources */,
@@ -968,6 +985,7 @@
 				A3DFBA232302C1D50006EEE3 /* GGTabBar.m in Sources */,
 				A3DFBA422302D2150006EEE3 /* GGConst.m in Sources */,
 				A3AF9DB62304639400187C2C /* GGPictureViewController.m in Sources */,
+				A33D9BED23065E8E004A6DD3 /* GGImage.m in Sources */,
 				A371CDE62302B3A30049E611 /* GGMeViewController.m in Sources */,
 				A3AF9DAD23045D9400187C2C /* GGMyFooter.m in Sources */,
 			);
