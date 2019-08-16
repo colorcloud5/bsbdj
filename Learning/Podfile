@@ -7,8 +7,13 @@ target 'Learning' do
 
   # Pods for Learning
   pod 'SDWebImage', '~> 5.1.0'
-
-  target 'LearningTests' do
+  pod 'DACircularProgress', '~> 2.3.1'
+  pod 'AFNetworking', '~> 3.2.1'
+  pod 'MJRefresh', '~> 3.2.0'
+  pod 'MJExtension', '~> 3.1.0'
+  pod 'SVProgressHUD', '~> 2.2.5'
+ 
+ target 'LearningTests' do
     inherit! :search_paths
     # Pods for testing
   end

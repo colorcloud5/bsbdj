@@ -28,8 +28,8 @@
 {
     if (!_publishButton) {
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-        [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [publishButton setImage:[UIImage imageNamed:@"icon_tabbar_post_44x44_"] forState:UIControlStateNormal];
+        [publishButton setImage:[UIImage imageNamed:@"icon_tabbar_post_select_44x44_"] forState:UIControlStateHighlighted];
         [publishButton addTarget:self action:@selector(publishButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:publishButton];
@@ -59,6 +59,8 @@
 {
     [super layoutSubviews];
     
+    self.y = self.y + 17;
+    self.height = 49;
     CGFloat btnW = self.width / 5;
     CGFloat btnH = self.height;
     
@@ -80,7 +82,8 @@
     
     // 设置中间的发布按钮
     self.publishButton.centerX = self.width * 0.5;
-    self.publishButton.centerY = self.height * 0.5 - 20;
+    //self.publishButton.centerY = self.height * 0.5 - 20;
+    self.publishButton.centerY = self.height * 0.5;
     self.publishButton.width = btnW;
     self.publishButton.height = btnH;
 }

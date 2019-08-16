@@ -25,7 +25,7 @@ NSString * const GGRequestURL = @"http://api.budejie.com/api/api_open.php";
 CGFloat const GGCommonMargin = 10;
 
 /** 导航栏最大的Y值 */
-CGFloat const GGNavBarMaxY = 64;
+CGFloat const GGNavBarMaxY = 88;//64
 
 /** GGTitlesView的高度 */
 CGFloat const GGTitlesViewH = 35;
