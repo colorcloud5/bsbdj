@@ -94,6 +94,8 @@
 -(void)setTopic:(GGTopic *)topic
 {
     _topic = topic;
+    self.videoView.hidden = YES;
+    self.pictureView.hidden = YES;
     
     [self.profileImageView setCircleHeaderWithURLString:topic.u.header[0]];
     self.nameLabel.text = topic.u.name;

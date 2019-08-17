@@ -15,15 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-r0-i6N" userLabel="backView" customClass="GGTopicVideoView">
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-r0-i6N" userLabel="backView" customClass="GGTopicVideoView">
                     <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oed-Iv-HRU" userLabel="显示图">
-                    <rect key="frame" x="0.0" y="0.0" width="384" height="242"/>
+                    <rect key="frame" x="92" y="0.0" width="200" height="242"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Pyp-n0-Kjh"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrv-xN-3JI" userLabel="播放">
                     <rect key="frame" x="165" y="94" width="54" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="54" id="Ssj-x0-CEy"/>
+                        <constraint firstAttribute="height" constant="54" id="kBP-pe-MGP"/>
+                    </constraints>
                     <state key="normal" image="icon_video_play_54x54_"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiW-YK-CZi" userLabel="时长">
@@ -41,25 +48,25 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="dKF-r0-i6N" secondAttribute="bottom" id="2Ws-Ip-aP5"/>
                 <constraint firstAttribute="trailing" secondItem="DiW-YK-CZi" secondAttribute="trailing" constant="5" id="3WL-QD-71e"/>
                 <constraint firstItem="Cti-1c-yWr" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" constant="5" id="77g-c8-X0v"/>
-                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerY" secondItem="dKF-r0-i6N" secondAttribute="centerY" id="A2k-aU-qy7"/>
+                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerX" secondItem="ISs-z8-idf" secondAttribute="centerX" id="B3h-In-WXa"/>
                 <constraint firstAttribute="bottom" secondItem="DiW-YK-CZi" secondAttribute="bottom" constant="3" id="FIK-bV-kMr"/>
-                <constraint firstAttribute="bottom" secondItem="dKF-r0-i6N" secondAttribute="bottom" id="Gwa-bV-vJF"/>
-                <constraint firstAttribute="trailing" secondItem="Oed-Iv-HRU" secondAttribute="trailing" id="H0O-1X-F5w"/>
-                <constraint firstItem="dKF-r0-i6N" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" id="H7m-E7-3Jv"/>
-                <constraint firstItem="dKF-r0-i6N" firstAttribute="top" secondItem="ISs-z8-idf" secondAttribute="top" id="OmE-2m-zyo"/>
-                <constraint firstItem="Oed-Iv-HRU" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" id="Rkt-3S-jut"/>
-                <constraint firstAttribute="bottom" secondItem="Oed-Iv-HRU" secondAttribute="bottom" id="Sqc-41-Hp4"/>
-                <constraint firstItem="Oed-Iv-HRU" firstAttribute="top" secondItem="ISs-z8-idf" secondAttribute="top" id="WT9-NJ-Jgx"/>
-                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerX" secondItem="dKF-r0-i6N" secondAttribute="centerX" id="cAR-Vv-1mh"/>
+                <constraint firstItem="Oed-Iv-HRU" firstAttribute="bottom" secondItem="dKF-r0-i6N" secondAttribute="bottom" id="ZhY-kP-D1c"/>
+                <constraint firstItem="dKF-r0-i6N" firstAttribute="top" secondItem="ISs-z8-idf" secondAttribute="top" id="aLR-y9-5PT"/>
+                <constraint firstItem="Oed-Iv-HRU" firstAttribute="top" secondItem="dKF-r0-i6N" secondAttribute="top" id="dOk-Tx-47Q"/>
+                <constraint firstItem="dKF-r0-i6N" firstAttribute="leading" secondItem="ISs-z8-idf" secondAttribute="leading" id="dhH-mt-PgR"/>
+                <constraint firstAttribute="trailing" secondItem="dKF-r0-i6N" secondAttribute="trailing" id="fDk-O3-Tmj"/>
                 <constraint firstAttribute="bottom" secondItem="Cti-1c-yWr" secondAttribute="bottom" constant="3" id="j8O-Ee-c6g"/>
-                <constraint firstAttribute="trailing" secondItem="dKF-r0-i6N" secondAttribute="trailing" id="o1t-BX-Ewk"/>
+                <constraint firstItem="jrv-xN-3JI" firstAttribute="centerY" secondItem="ISs-z8-idf" secondAttribute="centerY" id="piR-wb-GUa"/>
+                <constraint firstItem="Oed-Iv-HRU" firstAttribute="centerX" secondItem="dKF-r0-i6N" secondAttribute="centerX" id="voz-lk-YGt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backView" destination="dKF-r0-i6N" id="Gbd-0K-SOB"/>
                 <outlet property="imageView" destination="Oed-Iv-HRU" id="bLF-wU-ljq"/>
+                <outlet property="imageWidthCons" destination="Pyp-n0-Kjh" id="bI2-vk-VoN"/>
                 <outlet property="playButton" destination="jrv-xN-3JI" id="yu5-D5-4Lq"/>
                 <outlet property="playCountLabel" destination="Cti-1c-yWr" id="LKg-Mi-TQC"/>
                 <outlet property="videoTimeLabel" destination="DiW-YK-CZi" id="eKm-7w-IGL"/>

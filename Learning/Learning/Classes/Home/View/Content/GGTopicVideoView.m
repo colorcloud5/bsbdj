@@ -21,13 +21,20 @@
 
 @property (nonatomic, strong) GGPlayer *player;
 @property (nonatomic, assign, getter=isSmallScreen) BOOL smallScreen;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthCons;
 
 @end
 
 static GGTopicVideoView const *videoCell;
 
 @implementation GGTopicVideoView
+
+- (void)setFrame:(CGRect)frame{
+     _imageWidthCons.constant = frame.size.width;
+     frame.size.width = GGScreenW;
+    
+     [super setFrame:frame];
+}
 
 
 -(void)setTopic:(GGTopic *)topic

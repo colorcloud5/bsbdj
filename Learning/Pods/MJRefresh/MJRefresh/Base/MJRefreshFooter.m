@@ -38,7 +38,7 @@
     self.mj_h = MJRefreshFooterHeight;
     
     // 默认不会自动隐藏
-//    self.automaticallyHidden = NO;
+    //self.automaticallyHidden = NO;
 }
 
 //- (void)willMoveToSuperview:(UIView *)newSuperview

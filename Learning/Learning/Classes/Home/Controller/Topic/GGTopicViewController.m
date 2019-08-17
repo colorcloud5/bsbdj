@@ -24,6 +24,7 @@
 @property (nonatomic, copy) NSString *connid;
 
 @property (nonatomic, weak) GGTopicCell *cell;
+@property (nonatomic, weak) NSIndexPath *indexPath;
 
 
 @end
@@ -59,6 +60,10 @@ static NSString * const GGTopicCellId = @"topic";
 
 - (void)setupTable
 {
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    
     self.tableView.backgroundColor = GGCommonBgColor;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, GGTabBarH, 0);
     // 指定滚动条在scrollerView中的位置
@@ -98,11 +103,20 @@ static NSString * const GGTopicCellId = @"topic";
     
     NSString *requestURL;
     if (self.type == GGTopicTypeRecommend) {
-        requestURL = [GGRecommendURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        if(self.connid == nil){
+            requestURL = [GGRecommendURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        }else{
+             requestURL = [GGRecommendURL stringByReplacingOccurrencesOfString:@"#connid" withString:self.connid];
+        }
         requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:@"0"];
     }else {
         requestURL = [GGOtherURL stringByReplacingOccurrencesOfString:@"#topictype" withString:[NSString stringWithFormat:@"%@",@(self.type)]];
-        requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        if (self.connid == nil) {
+            requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#connid" withString:@"0-0"];
+        }else{
+            requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#connid" withString:self.connid];
+        }
+
         requestURL = [requestURL stringByReplacingOccurrencesOfString:@"#np" withString:@"0"];
     }
 
@@ -116,14 +130,14 @@ static NSString * const GGTopicCellId = @"topic";
         // 存储np
         NSNumber *np = responseObject[@"info"][@"np"];
         weakSelf.np = [np stringValue];
-        
+
         NSString *firstId = ((GGTopic *)weakSelf.topics[0]).ID;
         NSString *lastId =  ((GGTopic *)weakSelf.topics[weakSelf.topics.count - 1]).ID;
         weakSelf.connid = [NSString stringWithFormat:@"%@-%@",firstId, lastId];
         
         // 刷新表格
         [weakSelf.tableView reloadData];
-        
+         [weakSelf.tableView layoutIfNeeded];
         // 结束刷新
         [self.tableView.mj_header endRefreshing];
         
@@ -174,11 +188,10 @@ static NSString * const GGTopicCellId = @"topic";
         
         // 刷新表格
         [weakSelf.tableView reloadData];
-        
+        [weakSelf.tableView layoutIfNeeded];
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
         // 结束刷新
         [weakSelf.tableView.mj_footer endRefreshing];
         
@@ -202,9 +215,15 @@ static NSString * const GGTopicCellId = @"topic";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.cell = [tableView dequeueReusableCellWithIdentifier:GGTopicCellId];
+    GGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:GGTopicCellId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    return self.cell;
+    GGTopic *topic = self.topics[indexPath.row];
+    [topic cellHeight];
+    cell.topic = topic;
+
+    self.indexPath = indexPath;
+    return cell;
 }
 
 #pragma mark - tableView代理方法
@@ -212,15 +231,12 @@ static NSString * const GGTopicCellId = @"topic";
 {
     // 模型中已经完成高度的计算
     GGTopic *topic = self.topics[indexPath.row];
-    CGFloat cellHeight = topic.cellHeight;
-    self.cell.topic = topic;
-    
-    return cellHeight;
+    return topic.cellHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

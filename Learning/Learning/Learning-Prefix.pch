@@ -24,6 +24,8 @@
 #import "GGConst.h"
 #import "GGSingleton.h"
 
+/***  显示倍率  ***/
+# define GGScale (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) > 375 ? 3 : 2);
 /***  屏幕宽高  ***/
 #define GGScreenW [UIScreen mainScreen].bounds.size.width
 #define GGScreenH [UIScreen mainScreen].bounds.size.height

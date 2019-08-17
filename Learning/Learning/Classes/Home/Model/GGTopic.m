@@ -63,19 +63,25 @@
         
         // 中间内容的高度
         if (![self.type isEqualToString:@"text"]) {
-            CGFloat contentW = textW;
+            CGFloat contentW = 0;
             CGFloat contentH = 0;
             if ([self.type isEqualToString:@"video"]) {
-                contentW = GGScreenW;
+                self.video.width = self.video.width / GGScale;
+                 self.video.height = self.video.height / GGScale;
+                contentW = self.video.width > textW ? textW : self.video.width;
                 contentH = contentW * self.video.height / self.video.width;
             }else if([self.type isEqualToString:@"gif"]){
+                contentW = self.gif.width > textW ? textW : self.gif.width;
                 contentH = contentW * self.gif.height / self.gif.width;
             }else if([self.type isEqualToString:@"image"]){
+                self.image.width = self.image.width / GGScale;
+                self.image.height = self.image.height / GGScale;
+                contentW = self.image.width > textW ? textW : self.image.width;
                 contentH = contentW * self.image.height / self.image.width;
             }
             
             if (contentH > GGScreenH) { // 当图片的高度超过一个屏幕的高度时，将图片高度设置为200
-                contentH = 200;
+                contentH = 400;
                 self.bigPicture = YES;
             }
             

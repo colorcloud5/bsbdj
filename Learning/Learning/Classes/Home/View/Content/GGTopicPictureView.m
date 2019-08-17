@@ -55,7 +55,7 @@
         weakSelf.progressView.hidden = YES;
         
         UIImage *scaleImage = [image imageWithSize:CGSizeMake(weakSelf.size.width, weakSelf.size.width * image.size.height / image.size.width)];
-        if (topic.isBigPicture) {
+        if (topic.image.long_picture || topic.gif.long_picture) {
             self->_imageView.contentMode = UIViewContentModeTop;
             self->_imageView.clipsToBounds = YES;
             self->_imageView.image = scaleImage;
